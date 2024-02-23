@@ -5,16 +5,16 @@ import Main from './Component/home/Main';
 function App() {
   // const router = Router(
   //   createRoutesFromElements(
-  //     <Route path='/' element={<Main/>}></Route>
+  //     <Route path='/' element={<Main/> exact}></Route>
   //   )
   // )
   return (
     <div className="App">
-      {/* <RouterProvider router={router}></RouterProvider> */}
+      {/* <RouterProvider router={router}/> */}
       
        <Router>
         <Routes>
-          <Route path='/' element={<Main/>}/>
+          <Route path="/" element={<Main/>}/>
         </Routes>
        </Router>
     </div>
