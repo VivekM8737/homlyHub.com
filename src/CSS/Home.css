@@ -20,6 +20,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  cursor: pointer;
 }
 
 .searchbar {
@@ -59,10 +60,13 @@ input::placeholder {
 }
 .searchicon:hover {
   box-shadow: 2px 2px 5px black;
+  cursor: pointer;
 }
-.search:hover,
 .date_picker:hover {
   background-color: rgba(149, 139, 139, 0.318);
+  cursor: pointer;
+}
+.c_ptr:hover{
   cursor: pointer;
 }
 
