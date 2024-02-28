@@ -8,10 +8,10 @@ const Header = () => {
       <nav className='header row sticky-top '>
         <img src="./assets/logo.png" alt='logo' className='logo'></img>
 
-        <div className='search-filter '>
+        <div className='search_filter '>
           <Search />
-        </div>
           <Filter/>
+        </div>
         <span className="material-symbols-outlined web_logo c_ptr">
           account_circle
         </span>

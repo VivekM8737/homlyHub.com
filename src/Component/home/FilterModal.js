@@ -32,7 +32,7 @@ function FilterModal({selectedFilters,onFilterChange,onClose}) {
         const minValue= parseInt(e.target.value,10);
         setPriceRange((prev)=>({...prev,min:minValue}))
     }
-    const handlemaxInputChange = (e)=>{
+    const handleMaxInputChange = (e)=>{
         const maxValue =parseInt(e.target.value,10)
         setPriceRange((prev)=>({...prev,max:maxValue}))
     
@@ -49,12 +49,12 @@ function FilterModal({selectedFilters,onFilterChange,onClose}) {
         label: "House",
         icon:"home"
     },
-    {value:"Flate,",label:"Flat",icon:"apartment"},{
+    {value:"Flat,",label:"Flat",icon:"apartment"},{
         value:"Guest House",
         label: "Guest House",
-        icon:"home"
+        icon:"hotel"
     },
-    {value:"Hotel,",label:"Hotel",icon:"meeting_home"}
+    {value:"Hotel",label:"Hotel",icon:"meeting_room"}
     ];
 
     const roomTypeOption=[
@@ -148,6 +148,26 @@ function FilterModal({selectedFilters,onFilterChange,onClose}) {
                 <div className='filter-section'>
                     <label>PraceRange:</label>
                     <InputRage minValue={600} maxValue={30000} value={priceRange} onChange={handlePriceRangeChange}></InputRage>
+                    <div className='range-inputs'>
+                        <input type='number' value={priceRange.min}
+                        onChange={handleMinInputChange}/>
+                        <span>-</span>
+                        <input type='number' value={priceRange.max}
+                        onChange={handleMaxInputChange}/>
+                    </div>
+                </div>
+                {/* propertyType Filter */}
+                <div className='filter-section'>
+                    <label>Property Type:</label>
+                    <div className='icon-box'>
+                        {propertyTypeOption.map((options)=>(<div key={options.value}
+                        className={`selectable-box ${propertyType===options.value}`}
+                        onClick={()=>hadlePropertyTypeChange(options.value)}>
+                            <span className='material-icons'>{options.icon}</span>
+                            <span>{options.label}</span>
+                        </div>
+                            ))}
+                    </div>
                 </div>
             </div>
 
