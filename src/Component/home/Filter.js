@@ -1,11 +1,20 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import FilterModal from './FilterModal'
-
+import { useDispatch } from 'react-redux'
+import { getAllProperties } from '../../Property/property-action'
+import { propertyAction } from '../../Property/property-slice'
 const Filter = () => {
   // state for controlling model visibility
   const [isModalOpen,setIsModelOpen]=useState(false)
   // state for selected filter
   const [selectedFilters,setSelectedFilters]=useState({})
+  const dispatch=useDispatch();
+
+  useEffect(()=>{
+    dispatch(propertyAction.updateSearchParams(selectedFilters));
+    dispatch(getAllProperties())
+  }, [selectedFilters,dispatch] );
+  // fuction to open the model or popupWindow
   const handleOpenModel = ()=>{
     setIsModelOpen(true);
   }
@@ -22,7 +31,7 @@ const Filter = () => {
   }
   return (
     <>
-      <span className="material-symbols-outlined fliter c_ptr" onClick={handleOpenModel}>
+      <span className="material-symbols-outlined filter c_ptr" onClick={handleOpenModel}>
         tune
       </span>
       {isModalOpen&& (

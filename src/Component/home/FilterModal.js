@@ -3,6 +3,7 @@ import PropTypes from 'prop-types' // for using of type checking
 import "../../CSS/FilterModal.css"
 import "react-input-range/lib/css/index.css";
 import InputRage from "react-input-range"
+import Filter from './Filter';
 function FilterModal({selectedFilters,onFilterChange,onClose}) {
     const [priceRange,setPriceRange]=useState({
         min: selectedFilters.priceRange?.min || 600,
@@ -66,7 +67,7 @@ function FilterModal({selectedFilters,onFilterChange,onClose}) {
         {
         value:"Room",
         label:"Room",
-        icon: "meeting_hotel"
+        icon: "meeting_room"
         },
         {
         value:"AnyType",
@@ -161,7 +162,7 @@ function FilterModal({selectedFilters,onFilterChange,onClose}) {
                     <label>Property Type:</label>
                     <div className='icon-box'>
                         {propertyTypeOption.map((options)=>(<div key={options.value}
-                        className={`selectable-box ${propertyType===options.value}`}
+                        className={`selectable-box ${propertyType===options.value ? "selected" : ""}`}
                         onClick={()=>hadlePropertyTypeChange(options.value)}>
                             <span className='material-icons'>{options.icon}</span>
                             <span>{options.label}</span>
@@ -169,11 +170,52 @@ function FilterModal({selectedFilters,onFilterChange,onClose}) {
                             ))}
                     </div>
                 </div>
+                <div className='filter-section'>
+                    <label>Room Type:</label>
+                    <div className='icon-box'>
+                        {roomTypeOption.map((options)=>(<div key={options.value}
+                        className={`selectable-box ${roomType===options.value ? "selected" : ""}`}
+                        onClick={()=>hadleRoomTypeChange(options.value)}>
+                            <span className='material-icons'>{options.icon}</span>
+                            <span>{options.label}</span>
+                        </div>
+                            ))}
+                    </div>
+                </div>
+                <div className='filter-section'>
+                    <label>Amenities Type:</label>
+                    <div className='icon-box'>
+                        {amenitiesTypeOption.map((options)=>(<div key={options.value}
+                        className={"amenity-checkbox"}>
+                        <input type='checkbox'
+                        value={options.value}
+                        checked={amenities.includes(options.value)}
+                        onClick={()=>hadleAmenityChange(options.value)}/>
+                        
+                            <span className='material-icons'>{options.icon}</span>
+                            <span>{options.label}</span>
+                        </div>
+                            ))}
+                    </div>
+                </div>
+
+                <div className='filter-buttons'>
+                    <button className='clear-button' onClick={handleClearFilters}>Clear</button>
+                    <button onClick={hadleFilterChange}>Filter filter</button>
+
+                </div>
+
+
             </div>
 
         </div>
     </div>
   )
 }
+FilterModal.prototype={
+    selectedFilters: PropTypes.func.isRequired,
+    onFilterChange: PropTypes.func.isRequired,
+    onClose: PropTypes.func.isRequired
+};
 
 export default FilterModal

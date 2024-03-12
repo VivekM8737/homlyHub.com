@@ -23,6 +23,7 @@
   cursor: pointer;
 }
 
+
 .searchbar {
   display: flex;
   align-items: center;
@@ -73,8 +74,14 @@ input::placeholder {
 .filter {
   font-size: 2rem;
   cursor: pointer;
+  margin: .5rem;
 }
-
+.reset_filter{
+ margin-left: .5rem;
+}
+.resetLogo{
+  font-size: xx-small;
+}
 .web_logo {
   padding: 1rem;
   color: #000;
