@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const userSlice = createSlice({
     name: "user",
     initialState: {
-        istAuthenticated: false,
+        isAuthenticated: false,
         loading: false,
         user: null,
         errors: null,
@@ -14,7 +14,7 @@ const userSlice = createSlice({
         },
         getSignupDetails(state, action) {
             state.user = action.payload;
-            state.istAuthenticated = true;
+            state.isAuthenticated = true;
             state.loading = false;
         },
         getLoginRequest(state) {
@@ -22,7 +22,7 @@ const userSlice = createSlice({
         },
         getLoginDetails(state, action) {
             state.user = action.payload;
-            state.istAuthenticated = true;
+            state.isAuthenticated = true;
             state.loading = false;
         },
         getErrors(state, action) {
@@ -39,7 +39,7 @@ const userSlice = createSlice({
         },
         getCurrentUser(state, action) {
             state.user = action.payload;
-            state.istAuthenticated = true;
+            state.isAuthenticated = true;
             state.loading = false;
         },
         getLogoutRequest(state) {
@@ -48,7 +48,7 @@ const userSlice = createSlice({
         },
         getLogout(state,action) {
             state.user = action.payload;
-            state.istAuthenticated = false;
+            state.isAuthenticated = false;
             state.loading = false;
         },
         getPasswordRequest(state) {

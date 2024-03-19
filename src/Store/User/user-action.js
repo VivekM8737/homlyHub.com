@@ -38,7 +38,7 @@ export const currentUser=()=>async(dispatch)=>{
 export const updateUser =(updateUser)=> async(dispatch) =>{
     try{
         dispatch(userAction.getUpdateUserRequest());
-        await axios.patch("/api/v1/rent/users/update/me",updateUser);
+        await axios.patch("/api/v1/rent/user/updateMe",updateUser);
         const {data}=await axios.get("/api/v1/rent/user/me")
         dispatch(userAction.getCurrentUser(data.user))
     }

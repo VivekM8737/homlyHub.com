@@ -9,7 +9,7 @@ import { Logout } from '../../Store/User/user-action'
 import {toast} from "react-toastify";
 const Header = () => {
   const dispatch = useDispatch();
-  const {istAuthenticated,user}=useSelector((state)=>state.user);
+  const {isAuthenticated,user}=useSelector((state)=>state.user);
   const navigate=useNavigate();
   const logout=()=>{
     dispatch(Logout());
@@ -39,14 +39,14 @@ const Header = () => {
 
 
 
-        {!istAuthenticated && !user && (
+        {!isAuthenticated && !user && (
           <Link to="/login">
             <span className="material-symbols-outlined web_logo c_ptr">
               account_circle
             </span>
           </Link>
         )}
-        {istAuthenticated && user && (
+        {isAuthenticated && user && (
           <div className='dropdown'>
             <span className="material-symbols-outlined web_logo dropdown-toggle" href="#" role="button" id='dropdownMenuLink' data-bs-toggle="dropdown" aria-expanded="false">
             {user.avatar.url && (
@@ -59,11 +59,11 @@ const Header = () => {
             <ul className='dropdown-menu' aria-labelledby='dropdownMenuLink'>
               <li>
                 <Link className='dropdown-item' to="/profile">
-                  My Acount
+                  My Account
                 </Link>
               </li>
               <li>
-                <button className='dropdown-item' type='button' onClick={logout}></button>
+                <button className='dropdown-item' type='button' onClick={logout}>Logout</button>
               </li>
             </ul>
 

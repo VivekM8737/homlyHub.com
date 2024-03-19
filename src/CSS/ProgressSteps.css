@@ -26,7 +26,9 @@
   background-color: #0e8b53; /* Active button color */
   color: white;
   font-weight: 400;
+  
 }
+
 .progress-button:hover {
   text-decoration: none;
   background-color: rgba(1, 38, 7, 0.177);

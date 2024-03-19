@@ -49,7 +49,7 @@ const Login = () => {
                             <input type='password' id='password_field' className='form-control' value={password} onChange={(e)=>setPassword(e.target.value)}/>
                         </div>
                         <Link to="/user/forgotpassword" className='float-right mb-4'>
-                            Forgot Passowrd
+                            Forgot Password
                         </Link>
                         <button id='login_button' type='submit' className='loginbutton btn-block py-3'>
                             Login

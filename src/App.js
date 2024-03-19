@@ -7,10 +7,13 @@ import PropertyDetails from './Component/home/PropertyDetails/PropertyDetails';
 import {Flip, ToastContainer} from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import { useEffect } from 'react';
-import { UseDispatch,useDispatch,useSelector } from 'react-redux';
+import {useDispatch,useSelector } from 'react-redux';
 import { currentUser } from './Store/User/user-action';
 import { userAction } from './Store/User/user-slice';
 import Login from './Component/User/Login';
+import Signup from './Component/User/Signup';
+import Profile from './Component/User/Profile';
+import EditProfile from './Component/User/EditProfile';
 function App() {
   const dispatch=useDispatch();
   const {errors} =useSelector((state)=>
@@ -27,9 +30,11 @@ function App() {
     createRoutesFromElements(
       <Route path='/' element={<Main/>} id='main' exact>
         <Route id='home' index element={<PropertyList />} exact />
-
         <Route element={<PropertyDetails />} id='PropertyDetails' path='propertylist/:id' exact />
         <Route id='login' path='login'  element={<Login/>}/>
+        <Route id='signup' path='Signup' element={<Signup/>}/>
+        <Route id='profile' path="profile" element={<Profile/>} />
+        <Route id='editprofile' path='editprofile' element={<EditProfile/>}/>
       </Route>
 
     )
@@ -37,7 +42,12 @@ function App() {
   return (<>
     <div className="App">
       <RouterProvider router={router}/>
-
+      <ToastContainer
+      position='bottom-center'
+      autoClose={3000}
+      draggable={true}
+      transition={Flip}
+      />
       {/* <Router>
         <Main id="main"/> */}
         {/* <Routes>
