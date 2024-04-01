@@ -15,7 +15,7 @@ export const getSignup=(user)=>async(dispatch)=>{
 export const getLogIn=(user)=>async(dispatch)=>{
     try{
         dispatch(userAction.getLoginRequest());
-        const {data} =await axios.post("/api/v1/rent/user/login")
+        const {data} =await axios.post("/api/v1/rent/user/login",user)
         dispatch(userAction.getLoginDetails(data.user));
     }
     catch(error){
@@ -49,7 +49,7 @@ export const updateUser =(updateUser)=> async(dispatch) =>{
 }
 export const forgotPassword=(email)=> async(dispatch)=>{
     try{
-        await axios.post("/api/v1/rent/user/forgotPassowrd",{email})
+        await axios.post("/api/v1/rent/user/forgotPassword",{email})
     }
     catch(error){
         dispatch(userAction.getErrors(error.response.data.message))

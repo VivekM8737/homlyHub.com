@@ -3,8 +3,8 @@ import Search from './Search'
 import Filter from './Filter'
 import { Link ,useNavigate} from 'react-router-dom'
 import { useDispatch,useSelector } from 'react-redux'
-import { propertyAction } from '../../Property/property-slice'
-import { getAllProperties } from '../../Property/property-action'
+import { propertyAction } from '../../Store/Property/property-slice'
+import { getAllProperties } from '../../Store/Property/property-action'
 import { Logout } from '../../Store/User/user-action'
 import {toast} from "react-toastify";
 const Header = () => {

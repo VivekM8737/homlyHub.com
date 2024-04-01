@@ -1,8 +1,8 @@
 import React,{useEffect, useState} from 'react'
 import FilterModal from './FilterModal'
 import { useDispatch } from 'react-redux'
-import { getAllProperties } from '../../Property/property-action'
-import { propertyAction } from '../../Property/property-slice'
+import { getAllProperties } from '../../Store/Property/property-action'
+import { propertyAction } from '../../Store/Property/property-slice'
 const Filter = () => {
   // state for controlling model visibility
   const [isModalOpen,setIsModelOpen]=useState(false)

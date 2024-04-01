@@ -26,9 +26,11 @@ const Login = () => {
             dispatch(userAction.clearError());
         }
         else if(isAuthenticated){
+
             navigate("/")
             toast.success("User has logged successfully");
         }
+        console.log(isAuthenticated);
     },[isAuthenticated,errors,navigate])
   return (
     <Fragment>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux"
-import { getAllProperties } from '../../Property/property-action';
-import { propertyAction } from '../../Property/property-slice';
+import { getAllProperties } from '../../Store/Property/property-action';
+import { propertyAction } from '../../Store/Property/property-slice';
 import { Link } from 'react-router-dom';
 const Card = ({id, image, address, price, name }) => {
     return (

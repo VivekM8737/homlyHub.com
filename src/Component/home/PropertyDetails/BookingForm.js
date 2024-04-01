@@ -1,14 +1,16 @@
 import React,{useState} from 'react'
 import moment from "moment"
 import {DatePicker,Space} from "antd"
-import { useNavigate } from 'react-router-dom'
-import { UseDispatch } from 'react-redux'
+import { useNavigate, } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { setPaymentDetails } from '../../../Store/Payment/payment-slice'
 
 const BookingForm = ({propertyName,address,maximumGuest,propertyId,price,currentBookings}) => {
 const [paymentData,setPaymentData]=useState({});
 const [userData,setUserData]=useState({});
 const {RangePicker}=DatePicker;
 const navigate=useNavigate();
+const dispatch=useDispatch();
 const handleDateChange=(value,dateString)=>{
     handleFilterChange("checkinDate",dateString[0]);
     handleFilterChange("checkoutDate",dateString[1]);
@@ -40,9 +42,30 @@ const handleFilterChange=(keyName,value)=>{
     }))
 
 }
+const handleBookPlace = (e) => {
+    e.preventDefault();
+    if (
+      userData?.name &&
+      userData?.guests &&
+      userData?.phoneNo &&
+      paymentData?.checkinDate &&
+      paymentData?.checkoutDate
+    ) {
+      dispatch(
+        setPaymentDetails({
+          ...paymentData,
+          propertyName,
+          address,
+          maximumGuest,
+        })
+      );
+      navigate(`/payment/${propertyId}`);
+    } else {
+    }
+  };
   return (
     <div className='form-container'>
-        <form className='payment-form'>
+        <form className='payment-form' onSubmit={handleBookPlace}>
             <div className='price-pernight'>
                 <b>&#8377;{price}</b>
                 <span>/per night</span>

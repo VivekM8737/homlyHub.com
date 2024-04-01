@@ -48,8 +48,17 @@ const UpdatePassword = () => {
                 <label htmlFor='new_password_field'>
                     New Password
                 </label>
-                <input type='password' className='form-control' id='new_password_field' value={password} onChange={(e) => setPassword(e.target.value)} />
+                <input type='password'  id='new_password_field' className='form-control' value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
+            <div className='form_group'>
+                <label htmlFor='new_password_confirm_field'>
+                    New Password Confirm
+                </label>
+                <input type='password' id='new_password_confirm_field' className='form-control' value={passwordConfirm} onChange={(e) => setPasswordConfirm(e.target.value)} />
+            </div>
+            <button type='submit' className='btn-block mt-3 py-3 password-btn'>
+                Update Password
+            </button>
         </form>
     </div>
     </>
