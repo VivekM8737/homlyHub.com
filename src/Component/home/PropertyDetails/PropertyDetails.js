@@ -27,7 +27,7 @@ function PropertyDetails() {
             <>
                 <p className="property-header">{propertyName}</p>
                 <h6 className="property-location">
-                <span class="material-symbols-outlined">
+                <span className="material-symbols-outlined">
                     home
                 </span>
                 <span className="location">{`${address.area},${address.city},${address.pincode},${address.state}`}</span>

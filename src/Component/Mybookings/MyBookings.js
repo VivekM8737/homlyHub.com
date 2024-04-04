@@ -3,7 +3,7 @@ import "../../CSS/MyBookings.css";
 import ProgressSteps from "../ProgressSteps";
 import { useNavigate } from "react-router-dom";
 import {  useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useSelector } from  "react-redux";
 import {fetchUserBookings, fetchBookingDetails} from "../../Store/Booking/booking-action";
 import LoadingSpinner from "../LoadindSpinner"
 const MyBookings = () => {

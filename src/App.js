@@ -23,6 +23,9 @@ import { Elements } from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js'
 import MyBookings from './Component/Mybookings/MyBookings';
 import BookingDetails from './Component/Mybookings/BookingDetails';
+import AccomodationForm from './Component/Accomodation/AccomodationForm';
+import Accomodation from './Component/Accomodation/Accomodation';
+
 function App() {
   const stripePromise =loadStripe("pk_test_51OtVWiSHqCHq3FHGyGH2xl2g6MXFeCvMSZIoQLnZg2CqAr9hSOm5ExIriRMLhbY5roqvgEJ6MoKLjdLDQyJ36SaB00TjAroFFF");
   const dispatch=useDispatch();
@@ -52,6 +55,10 @@ function App() {
           <Elements stripe={stripePromise}><Payment/></Elements>}/>
         <Route id='mybookings' path='user/booking' element={<MyBookings/>}/>
         <Route id='bookingdetails' path="user/booking/:bookingId" element={<BookingDetails/>} />
+
+        <Route id='accomodation' path="accommodation" element={<Accomodation/>}/>
+        <Route id='accomodationform' path='accomodationform' element={<AccomodationForm/>} />
+
       </Route>
 
     )
